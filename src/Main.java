@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -14,8 +13,7 @@ public class Main {
             System.out.printf("Enter number %d/%d\n", i+1, amount);
             array[i] = getNumber();
         }
-        // sort it (very important!!!)
-        Arrays.sort(array);
+        // actually we don't need array sorting
         System.out.println("Lowest: " + getLowest());
         System.out.println("Highest: " + getHighest());
         System.out.println("Sum: " + getSum());
@@ -23,10 +21,30 @@ public class Main {
         scanner.close();
     }
     public static int getLowest() {
-        return array[0];
+        int lowest = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(i == 0) {
+                lowest = array[0];
+            } else {
+                if(array[i] < lowest) {
+                    lowest = array[i];
+                }
+            }
+        }
+        return lowest;
     }
     public static int getHighest() {
-        return array[array.length-1];
+        int highest = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(i == 0) {
+                highest = array[0];
+            } else {
+                if(array[i] > highest) {
+                    highest = array[i];
+                }
+            }
+        }
+        return highest;
     }
     public static int getSum() {
         int sum = 0;
